@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="all" name="sce-bridge" packages="org.apache.logging.log4j.core.appender.rolling.action">
+  <Appenders>
+<RollingFile name="RollingFile"
+  fileName="D:/DialogBuilder_Logger/LogFiles/CCO_IVR/Debug/SpringDemo.log"
+  filePattern="D:/DialogBuilder_Logger/LogFiles/CCO_IVR/Debug/SpringDemo.%d{MM-dd-yyyy}.%i.log"
+  ignoreExceptions="false">
+    <PatternLayout>
+        <Pattern>[%-4p] %d [%c.%M:%L] - %m%n</Pattern>
+    </PatternLayout>
+    <Policies>
+        <SizeBasedTriggeringPolicy size="200 MB" />
+        <TimeBasedTriggeringPolicy />
+    </Policies>
+</RollingFile>
+  </Appenders>
+  <Loggers>
+  <logger name="org.springframework" level="warn" additivity="false"></logger>
+    <Root level="all">
+      <AppenderRef ref="RollingFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
